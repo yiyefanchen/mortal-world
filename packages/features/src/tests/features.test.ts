@@ -12,7 +12,7 @@ export type TAIFeatures = {
 	deleteItem?: undefined | boolean;
 	restoreItem?: undefined | boolean;
 	deleteAll?: {
-		options: { title: string; successMessage: string };
+		options: { title: string; message: string };
 	};
 	recycle?: undefined | boolean;
 };
@@ -27,13 +27,12 @@ export const BuildSystemDefaultFeatures: TAIFeatures = {
 	}
 };
 const features = new FeaturesManager<TAIFeatures>(BuildSystemDefaultFeatures);
-
-const f1 = features.getFeature('deleteAll.options.successMessage');
+const f1 = features.getFeature('deleteAll.options.message');
 const f2 = features.getFeature('deleteAll.options');
 
 const fh1 = features.hasFeatures('deleteAll');
-const fh2 = features.hasFeatures('deleteAll.options.successMessage');
-const f3 = features.hasFeatures([
-	'deleteAll',
-	'deleteAll.options.successMessage'
-]);
+const fh2 = features.hasFeatures('deleteAll.options.message');
+const f3 = features.hasFeatures(['deleteAll', 'deleteAll.options.message']);
+
+f3.hasDeleteAllFeature;
+f3.hasDeleteAllOptionsMessageFeature;
