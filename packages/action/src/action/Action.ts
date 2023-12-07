@@ -229,4 +229,6 @@ export class ActionManager {
 			this.batchExecParallelAction(parallelActions, _params, _extraParams);
 		}
 	};
+
+	public emitActions = this.batchExecAction;
 }
